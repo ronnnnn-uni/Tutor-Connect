@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from '../assets/logo.png';
 import Folder from '../assets/folder.png';
+import Tutor from '../assets/tutor.png';
 import Appointment from '../assets/appointment.png';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -43,6 +44,15 @@ const AdminHome = ({navigation}) => {
               source={Appointment}
               />
               <Text style={styles.cardText}> Appointments</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.card}>
+              <Image
+              resizeMode='contain'
+              style = {styles.ActionIcon}
+              source={Tutor}
+              />
+              <Text style={styles.cardText}> Pending Tutors</Text>
             </TouchableOpacity>
 
           </View>
