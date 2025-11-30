@@ -6,6 +6,8 @@ import SignUpScreen from "./screens/SignUpScreen";
 import StudentHome from "./screens/StudentHome";
 import TutorHome from "./screens/TutorHome";
 import AdminHome from "./screens/AdminHome";
+import ScheduleScreen from "./screens/ScheduleScreen";
+import TutorSchedule from "./screens/TutorSchedule";
 
 
 
@@ -22,7 +24,9 @@ const StackNavigator = () => {
                 <Stack.Screen name = "StudentHome" component = {StudentHome}/>
                 <Stack.Screen name = "TutorHome" component = {TutorHome}/>
                 <Stack.Screen name = "AdminHome" component = {AdminHome}/>
-
+                <Stack.Screen name = "ScheduleScreen" component = {ScheduleScreen}/>
+                <Stack.Screen name = "TutorSchedule" component = {TutorSchedule}/>
+                
             </Stack.Group>
         </Stack.Navigator>
     );

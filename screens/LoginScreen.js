@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Logo from '../assets/logo.png';
-import { SafeAreaView } from 'react-native-safe-area-context';                                                                          
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { login } from '../services/authService';                                                                         
 import {
   StyleSheet,
   View,
@@ -69,7 +70,7 @@ const LoginScreen = ({navigation}) => {
             <TouchableOpacity
               onPress={() => {
                 // handle onPress
-                navigation.navigate('AdminHome')
+                navigation.navigate('TutorHome')
               }}>
               <View style={styles.btn}>
                 <Text style={styles.btnText}>Sign in</Text>
