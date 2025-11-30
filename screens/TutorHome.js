@@ -37,7 +37,10 @@ const TutorHome = ({navigation}) => {
               <Text style={styles.cardText}>Manage Appointment</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.card}>
+            <TouchableOpacity style={styles.card} onPress={() => {
+                // handle onPress
+                navigation.navigate('TutorSchedule')
+              }}>
               <Image
               resizeMode='contain'
               style = {styles.ActionIcon}
@@ -53,8 +56,8 @@ const TutorHome = ({navigation}) => {
           <Text style={styles.sectionTitle}>Upcoming Appointment</Text>
 
           <View style={styles.appointmentCard}>
-            <Text style={styles.apptLabel}>Tutor:</Text>
-            <Text style={styles.apptInfo}>GERALD</Text>
+            <Text style={styles.apptLabel}>Student:</Text>
+            <Text style={styles.apptInfo}>USER</Text>
 
             <Text style={styles.apptLabel}>Date & Time:</Text>
             <Text style={styles.apptInfo}>November 26, 2025 • 1:00 PM - 3:00 PM</Text>

@@ -29,6 +29,7 @@ const StudentHome = ({navigation}) => {
 
           <View style={styles.cardGrid}>
             <TouchableOpacity style={styles.card}>
+
               <Image
               resizeMode='contain'
               style = {styles.ActionIcon}
@@ -37,7 +38,12 @@ const StudentHome = ({navigation}) => {
               <Text style={styles.cardText}>Book Appointment</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.card}>
+            <TouchableOpacity style={styles.card}
+            
+            onPress={() => {
+                // handle onPress
+                navigation.navigate('ScheduleScreen')
+              }}>
               <Image
               resizeMode='contain'
               style = {styles.ActionIcon}
@@ -197,7 +203,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     marginTop: 15 ,
-    borderRadius: 12,
+    borderRadius: 15,
     width: 90,
     height: 50 ,
   } , 
