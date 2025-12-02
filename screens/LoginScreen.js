@@ -11,17 +11,37 @@ import {
   TextInput,
   KeyboardAvoidingView,
   ScrollView,
+  ActivityIndicator,
 } from 'react-native';
 
 const LoginScreen = ({navigation}) => {
-  const [form, setForm] = useState({
-    email: '',
-    password: '',
-    
-  });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+
+   const handleLogin = async () => {
+    if (!email || !password) {
+      Alert.alert('Error', 'Please fill in all fields');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await login(email, password);
+
+      if (response.success) {
+        navigation.navigate('Home', { user: response.user });
+      } else {
+        Alert.alert('Error', response.message || 'Login failed');
+      }
+    } catch (error) {
+      Alert.alert('Error', error.message || 'Something went wrong');
+    } finally {
+      setLoading(false);
+    }
+  };
 
 
-  
   return (
   <KeyboardAvoidingView style={{ flex: 1 }} behavior= {'padding'}>
     <SafeAreaView style={{ flex: 1, backgroundColor: '#e8ecf4' }}>
@@ -51,11 +71,11 @@ const LoginScreen = ({navigation}) => {
               autoCorrect={false}
               clearButtonMode="while-editing"
               keyboardType="email-address"
-              onChangeText={email => setForm({ ...form, email })}
+              onChangeText={setEmail}
               placeholder="1923456@ub.edu.ph"
               placeholderTextColor="#6b7280"
               style={styles.inputControl}
-              value={form.email} />
+              value={email} />
           </View>
 
           <View style={styles.input}>
@@ -64,24 +84,27 @@ const LoginScreen = ({navigation}) => {
             <TextInput
               autoCorrect={false}
               clearButtonMode="while-editing"
-              onChangeText={password => setForm({ ...form, password })}
+              onChangeText={setPassword}
               placeholder="********"
               placeholderTextColor="#6b7280"
               style={styles.inputControl}
               secureTextEntry={true}
-              value={form.password} />
+              editable={!loading}
+              value={password} />
           </View>
 
-          <View style={styles.formAction}>
+          <View style={styles.formAction && styles.formActionDisabled}>
             <TouchableOpacity
-              onPress={() => {
-                // handle onPress
-                navigation.navigate('StudentHome')
-              }}>
+              onPress={handleLogin}>
+              
+            {loading ? ( <ActivityIndicator color = "#fff"/>
+            ) : (
               <View style={styles.btn}>
                 <Text style={styles.btnText}>Sign in</Text>
               </View>
+            )}
             </TouchableOpacity>
+
           </View>
         </View>
       </View>
