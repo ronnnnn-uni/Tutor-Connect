@@ -3,21 +3,21 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 
 const PlaceholderData = [
- { "id": 1, "tutor": "Gerald", "time": "Nov 26, 2025 1:00PM -  3:00PM","subject":"Math" ,"status": "Pending Confirmation" },
+ { "id": 1, "tutor": "Gerald", "time": "11/26/25 1:00PM -  3:00PM","subject":"Math" ,"status": "Pending Confirmation" },
 
 ];
 
+ const renderItem = ({item}) => (
+        <View style = {styles.row}>
+            <Text style = {styles.cellS}> {item.tutor} </Text>
+            <Text style = {styles.cellL}> {item.time} </Text>
+            <Text style = {styles.cellM}> {item.status} </Text>
+        </View>
+    ) ;
 
 
 const ScheduleScreen = ({navigation}) => {
 
-    const renderItem = ({item}) => (
-        <View style = {styles.row}>
-            <Text style = {styles.cell}> {item.tutor} </Text>
-            <Text style = {styles.cell}> {item.time} </Text>
-            <Text style = {styles.cell}> {item.status} </Text>
-        </View>
-    ) 
 
     return (
 
@@ -37,7 +37,7 @@ const ScheduleScreen = ({navigation}) => {
                 <FlatList 
                 data={PlaceholderData}
                 renderItem={renderItem} 
-                keyExtractor={(item) => {item.id.toString() }}
+                keyExtractor={(item) => item.id.toString() }
                 />
                 <TouchableOpacity style = {styles.Editbtn}
                 activeOpacity={0.3}
@@ -50,7 +50,7 @@ const ScheduleScreen = ({navigation}) => {
                 </TouchableOpacity>
             </View>
 
-            <View>
+            <View style = {styles.footer}>
                 <TouchableOpacity style = {styles.Backbtn}
                 activeOpacity={0.3}
                 onPress={() => {
@@ -93,11 +93,11 @@ topBartxt: {
 header: {
     flexDirection: "row" ,
     justifyContent: "space-between" ,
-    padding: 10 ,
+    padding: 13 ,
 } ,
 
 heading: {
-    flex: 1 ,
+    flex: 1.5 ,
     fontSize: 15 ,
 } ,
 
@@ -113,22 +113,39 @@ row: {
     backgroundColor: '#e8ecf4' ,
 } ,
 
-cell: {
+cellS: {
     fontSize: 14 ,
     textAlign: "left" ,
     flex: 1 ,
 } ,
 
+cellM: {
+    fontSize: 14 ,
+    textAlign: "left" ,
+    flex: 1.5 ,
+} ,
+
+cellL: {
+    fontSize: 14 ,
+    textAlign: "center" ,
+    flex: 2 ,
+    paddingHorizontal: 5 ,
+} ,
+
+footer: {
+    padding: 20,
+    backgroundColor: '#e8ecf4',
+  },
+
 
 Backbtn: {
-    marginLeft: 10 ,
-    backgroundColor: '#751f1fff',
-    paddingVertical: 8,
-    paddingHorizontal: 15,
-    marginTop: 15 ,
-    borderRadius: 12,
-    width: 70,
-    height: 40 ,
+    backgroundColor: '#751f1f',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    alignSelf: 'flex-start',
+    width: 80,
+    alignItems: 'center',
 } ,
 
 backtxt: {

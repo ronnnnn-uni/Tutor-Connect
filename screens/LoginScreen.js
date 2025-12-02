@@ -10,16 +10,22 @@ import {
   TouchableOpacity,
   TextInput,
   KeyboardAvoidingView,
+  ScrollView,
 } from 'react-native';
 
 const LoginScreen = ({navigation}) => {
   const [form, setForm] = useState({
     email: '',
     password: '',
+    
   });
+
+
+  
   return (
-  <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
+  <KeyboardAvoidingView style={{ flex: 1 }} behavior= {'padding'}>
     <SafeAreaView style={{ flex: 1, backgroundColor: '#e8ecf4' }}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <View style={styles.container}>
         <View style={styles.header}>
           <Image
@@ -70,7 +76,7 @@ const LoginScreen = ({navigation}) => {
             <TouchableOpacity
               onPress={() => {
                 // handle onPress
-                navigation.navigate('TutorHome')
+                navigation.navigate('StudentHome')
               }}>
               <View style={styles.btn}>
                 <Text style={styles.btnText}>Sign in</Text>
@@ -90,6 +96,7 @@ const LoginScreen = ({navigation}) => {
           <Text style={{ textDecorationLine: 'underline' }}>Sign up</Text>
         </Text>
       </TouchableOpacity>
+      </ScrollView>
     </SafeAreaView>
   </KeyboardAvoidingView>
   );
