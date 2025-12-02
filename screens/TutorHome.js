@@ -28,7 +28,10 @@ const TutorHome = ({navigation}) => {
           <Text style={styles.sectionTitle}>Quick Actions</Text>
 
           <View style={styles.cardGrid}>
-            <TouchableOpacity style={styles.card}>
+            <TouchableOpacity style={styles.card} onPress={() => {
+                // handle onPress
+                navigation.navigate('ManageAppointment')
+              }}>
               <Image
               resizeMode='contain'
               style = {styles.ActionIcon}

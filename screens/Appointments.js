@@ -3,32 +3,33 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 
 const PlaceholderData = [
- { "id": 1, "tutor": "Gerald", "time": "Nov 26, 2025 1:00PM -  3:00PM","subject":"Math" ,"status": "Pending Confirmation" },
+ { "id": 1, "student": "User", "tutor": "Gerald", "time": "11/26/25 1:00PM -  3:00PM","subject":"Math" ,"status": "Pending Confirmation" },
 
 ];
 
-
-
-const ScheduleScreen = ({navigation}) => {
-
-    const renderItem = ({item}) => (
+const renderItem = ({item}) => (
         <View style = {styles.row}>
+            <Text style = {styles.cell}> {item.student} </Text>
             <Text style = {styles.cell}> {item.tutor} </Text>
             <Text style = {styles.cell}> {item.time} </Text>
             <Text style = {styles.cell}> {item.status} </Text>
         </View>
     ) 
 
+const Appointments = ({navigation}) => {
+
+    
     return (
 
         <SafeAreaView style={{ flex: 1, backgroundColor: '#e8ecf4' }}>
             
             <View style = {styles.container}>
                 <View style = {styles.topBar}>
-                    <Text style = {styles.topBartxt}>Schedule</Text>
+                    <Text style = {styles.topBartxt}>Appointments</Text>
                 </View>
                 
                 <View  style = {styles.header}>
+                    <Text style = {styles.heading}> Student </Text>
                     <Text style = {styles.heading}> Tutor </Text>
                     <Text style = {styles.heading}> Date & Time </Text>
                     <Text style = {styles.heading}> Status </Text>
@@ -55,7 +56,7 @@ const ScheduleScreen = ({navigation}) => {
                 activeOpacity={0.3}
                 onPress={() => {
                 // handle onPress
-                navigation.navigate('StudentHome')
+                navigation.navigate('AdminHome')
               }}>
 
                     <Text style = {styles.backtxt}>Back</Text>
@@ -157,4 +158,4 @@ EditTxt: {
 });
 
 
-export default ScheduleScreen;
+export default Appointments;
