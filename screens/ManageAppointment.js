@@ -114,7 +114,7 @@ const BookAppointment = ({ navigation }) => {
                 <Text style={styles.Heading}>Edit Appointment</Text>
 
                 <View style={styles.ApptForm}>
-                    <Text style={styles.label}>Select Tutor:</Text>
+                    <Text style={styles.label}>Select Student:</Text>
                     <View style={{ zIndex: 1000 }}>
                         <DropDownPicker
                             open={open}
@@ -123,7 +123,7 @@ const BookAppointment = ({ navigation }) => {
                             setOpen={setOpen}
                             setValue={setValue}
                             setItems={setTutor}
-                            placeholder="Choose a tutor..."
+                            placeholder="Choose a student..."
                             style={styles.dropdown}
                         />
                     </View>
