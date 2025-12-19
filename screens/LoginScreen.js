@@ -17,6 +17,11 @@ const LoginScreen = ({navigation}) => {
     email: '',
     password: '',
   });
+
+
+
+  
+
   return (
   <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
     <SafeAreaView style={{ flex: 1, backgroundColor: '#e8ecf4' }}>
