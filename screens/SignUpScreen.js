@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Logo from '../assets/logo.png';
+import DropDownPicker from "react-native-dropdown-picker";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   StyleSheet,
@@ -18,6 +19,15 @@ const SignUpScreen = ({navigation}) => {
     email: '',
     password: '',
   });
+
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(null);
+  const [role, setRole] = useState([
+      {label: 'Student', value: 'Student'},
+      {label: 'Tutor', value: 'Tutor'},
+      {label: 'Admin', value: 'Admin'},
+  ]);
+
   return (
   <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
     <SafeAreaView style={{ flex: 1, backgroundColor: '#e8ecf4' }}>
@@ -149,7 +159,22 @@ const SignUpScreen = ({navigation}) => {
               value={form.password} />
           </View>
 
-          <View style={styles.formAction}>
+                 <View style = {styles.ApptForm}>
+                    <Text style={styles.inputLabel}>Select Role:</Text>
+                    <View style={{ zIndex: 1000 }}>
+                        <DropDownPicker
+                            open={open}
+                            value={value}
+                            items={role}
+                            setOpen={setOpen}
+                            setValue={setValue}
+                            setItems={setRole}
+                            placeholder="Choose a role..."
+                            style={styles.dropdown}
+                        />
+                    </View>
+
+            <View style={styles.formAction}>
             <TouchableOpacity
               onPress={() => {
                 // handle onPress
@@ -160,6 +185,7 @@ const SignUpScreen = ({navigation}) => {
               </View>
             </TouchableOpacity>
 
+            </View>
           </View>
         </View>
       </View>
@@ -206,7 +232,7 @@ const styles = StyleSheet.create({
     flexBasis: 0,
   },
   formAction: {
-    marginTop: 4,
+    marginTop: 20,
     marginBottom: 16,
   },
   formLink: {

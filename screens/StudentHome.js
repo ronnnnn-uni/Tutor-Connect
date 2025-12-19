@@ -27,8 +27,12 @@ const StudentHome = ({navigation}) => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Quick Actions</Text>
 
-          <View style={styles.cardGrid}>
-            <TouchableOpacity style={styles.card}>
+          <View style={styles.cardGrid} >
+            <TouchableOpacity style={styles.card}
+            onPress={() => {
+                // handle onPress
+                navigation.navigate('BookAppointment')
+              }}>
 
               <Image
               resizeMode='contain'

@@ -7,11 +7,7 @@ const PlaceholderData = [
 
 ];
 
-
-
-const TutorSchedule = ({navigation}) => {
-
-    const renderItem = ({item}) => (
+const renderItem = ({item}) => (
         <View style = {styles.row}>
             <Text style = {styles.cell}> {item.student} </Text>
             <Text style = {styles.cell}> {item.time} </Text>
@@ -19,6 +15,9 @@ const TutorSchedule = ({navigation}) => {
         </View>
     ) 
 
+const TutorSchedule = ({navigation}) => {
+
+    
     return (
 
         <SafeAreaView style={{ flex: 1, backgroundColor: '#e8ecf4' }}>
@@ -37,7 +36,7 @@ const TutorSchedule = ({navigation}) => {
                 <FlatList 
                 data={PlaceholderData}
                 renderItem={renderItem} 
-                keyExtractor={(item) => {item.id.toString() }}
+                keyExtractor={(item) => item.id.toString() }
                 />
                 <TouchableOpacity style = {styles.Editbtn}
                 activeOpacity={0.3}
@@ -91,6 +90,7 @@ topBartxt: {
 } ,
 
 header: {
+    backgroundColor: '#ccc' ,
     flexDirection: "row" ,
     justifyContent: "space-between" ,
     padding: 10 ,

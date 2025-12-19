@@ -28,7 +28,10 @@ const AdminHome = ({navigation}) => {
           <Text style={styles.sectionTitle}>Quick Actions</Text>
 
           <View style={styles.cardGrid}>
-            <TouchableOpacity style={styles.card}>
+            <TouchableOpacity style={styles.card} onPress={() => {
+                // handle onPress
+                navigation.navigate('UserRecords')
+              }}>
               <Image
               resizeMode='contain'
               style = {styles.ActionIcon}
@@ -37,7 +40,10 @@ const AdminHome = ({navigation}) => {
               <Text style={styles.cardText}>User Records</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.card}>
+            <TouchableOpacity style={styles.card}onPress={() => {
+                // handle onPress
+                navigation.navigate('Appointments')
+              }}>
               <Image
               resizeMode='contain'
               style = {styles.ActionIcon}
@@ -46,7 +52,10 @@ const AdminHome = ({navigation}) => {
               <Text style={styles.cardText}> Appointments</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.card}>
+            <TouchableOpacity style={styles.card} onPress={() => {
+                // handle onPress
+                navigation.navigate('PendingTutors')
+              }}>
               <Image
               resizeMode='contain'
               style = {styles.ActionIcon}
@@ -66,7 +75,7 @@ const AdminHome = ({navigation}) => {
             <Text style={styles.apptInfo}>GERALD</Text>
 
             <Text style={styles.apptLabel}>Student:</Text>
-            <Text style={styles.apptInfo}>Ronn</Text>
+            <Text style={styles.apptInfo}>User</Text>
 
             <Text style={styles.apptLabel}>Date & Time:</Text>
             <Text style={styles.apptInfo}>November 26, 2025 • 1:00 PM - 3:00 PM</Text>

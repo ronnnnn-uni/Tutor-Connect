@@ -70,7 +70,7 @@ const LoginScreen = ({navigation}) => {
             <TouchableOpacity
               onPress={() => {
                 // handle onPress
-                navigation.navigate('TutorHome')
+                navigation.navigate('AdminHome')
               }}>
               <View style={styles.btn}>
                 <Text style={styles.btnText}>Sign in</Text>
